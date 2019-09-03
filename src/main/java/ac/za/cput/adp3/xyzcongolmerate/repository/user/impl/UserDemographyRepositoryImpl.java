@@ -20,33 +20,36 @@ public class UserDemographyRepositoryImpl implements UserDemographyRepository {
         return userDemographyRepository;
     }
 
-    //TODO: Implement body
     @Override
     public UserDemography create(UserDemography userDemography) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+        this.userDemographyDB.add(userDemography);
+        return userDemography;    }
 
-    //TODO: Implement body
     @Override
     public UserDemography read(String userEmail) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return  userDemographyDB.stream()
+                .filter(userDemography -> userEmail.equalsIgnoreCase(userDemography.getUserEmail()))
+                .findAny()
+                .orElse(null);
     }
 
-    //TODO: Implement body
     @Override
     public UserDemography update(UserDemography userDemography) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(read(userDemography.getUserEmail()) != null){
+            delete(userDemography.getUserEmail());
+            create(userDemography);
+        }
+        return userDemography;
     }
 
-    //TODO: Implement body
     @Override
     public void delete(String userEmail) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+        UserDemography userDemography = read(userEmail);
+        this.userDemographyDB.remove(userEmail);    }
 
     //TODO: Implement body
     @Override
     public Set<UserDemography> getAll() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return userDemographyDB;
     }
 }

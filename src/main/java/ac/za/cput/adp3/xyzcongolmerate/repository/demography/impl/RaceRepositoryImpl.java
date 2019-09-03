@@ -20,33 +20,37 @@ public class RaceRepositoryImpl implements RaceRepository {
         return raceRepository;
     }
 
-    //TODO: Implement body
     @Override
     public Race create(Race race) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        this.raceDB.add(race);
+        return race;
     }
 
-    //TODO: Implement body
     @Override
     public Race read(String raceId) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return  raceDB.stream()
+                .filter(gender -> raceId.equalsIgnoreCase(raceId))
+                .findAny()
+                .orElse(null);
     }
 
-    //TODO: Implement body
     @Override
     public Race update(Race race) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(read(race.getRaceId()) != null){
+            delete(race.getRaceId());
+            create(race);
+        }
+        return race;
     }
 
-    //TODO: Implement body
     @Override
     public void delete(String raceId) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Race race = read(raceId);
+        this.raceDB.remove(race);
     }
 
-    //TODO: Implement body
     @Override
     public Set<Race> getAll() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return raceDB;
     }
 }

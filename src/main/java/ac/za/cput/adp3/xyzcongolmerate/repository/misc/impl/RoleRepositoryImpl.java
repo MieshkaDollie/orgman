@@ -20,33 +20,37 @@ public class RoleRepositoryImpl implements RoleRepository {
         return roleRepository;
     }
 
-    //TODO: Implement body
     @Override
     public Role create(Role role) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        this.roleDB.add(role);
+        return role;
     }
 
-    //TODO: Implement body
     @Override
     public Role read(String roleId) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return  roleDB.stream()
+                .filter(role -> roleId.equalsIgnoreCase(role.getRoleId()))
+                .findAny()
+                .orElse(null);
     }
 
-    //TODO: Implement body
     @Override
     public Role update(Role role) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(read(role.getRoleId()) != null){
+            delete(role.getRoleId());
+            create(role);
+        }
+        return role;
     }
 
-    //TODO: Implement body
     @Override
     public void delete(String roleId) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Role role = read(roleId);
+        this.roleDB.remove(role);
     }
 
-    //TODO: Implement body
     @Override
     public Set<Role> getAll() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return roleDB;
     }
 }

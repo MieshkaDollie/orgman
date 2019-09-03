@@ -1,23 +1,26 @@
 package ac.za.cput.adp3.xyzcongolmerate.factory.user;
 
+import ac.za.cput.adp3.xyzcongolmerate.domain.demography.Gender;
+import ac.za.cput.adp3.xyzcongolmerate.domain.demography.Race;
+import ac.za.cput.adp3.xyzcongolmerate.domain.user.User;
+import ac.za.cput.adp3.xyzcongolmerate.domain.user.UserDemography;
+import ac.za.cput.adp3.xyzcongolmerate.factory.demography.GenderFactory;
+import ac.za.cput.adp3.xyzcongolmerate.factory.demography.RaceFactory;
 import org.junit.Test;
-
+import java.util.Date;
 import static org.junit.Assert.*;
 
 public class UserDemographyFactoryTest {
 
-    //TODO: implement method body ONLY!
     @Test
     public void buildUserDemography() {
-        throw new UnsupportedOperationException("Not supported yet.");
-        /**
-         * Your implementation goes here
-         *
-         * INSTRUCTION
-         * 1. Remove line [//TODO: implement method body ONLY!]
-         * 2. Remove line [throw new UnsupportedOperationException("Not yet supported.");]
-         * 3. Test the UserDemographyFactory class
-         * 4. Assert that the an object is created.
-         */
+        User user = UserFactory.buildUser("test@test.com","Banele","Mlamleli");
+        Race race = RaceFactory.buildRace("Green-man");
+        Gender gender = GenderFactory.buildGender("Male");
+        Date date = new Date();
+        UserDemography userDemography = UserDemographyFactory.buildUserDemography(user.getUserEmail(),"Tile",gender.getGenderId(),race.getRaceId(),date);
+        assertNotNull(userDemography);
+        assertNotNull(userDemography.getUserEmail());
+        System.out.println(userDemography.toString());
     }
 }

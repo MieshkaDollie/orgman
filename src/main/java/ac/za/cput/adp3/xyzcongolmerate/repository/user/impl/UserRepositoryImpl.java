@@ -20,33 +20,36 @@ public class UserRepositoryImpl implements UserRepository {
         return userRepository;
     }
 
-    //TODO: Implement body
     @Override
     public User create(User user) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        this.userDB.add(user);
+        return user;
     }
 
-    //TODO: Implement body
     @Override
     public User read(String email) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return  userDB.stream()
+                .filter(user -> email.equalsIgnoreCase(user.getUserEmail()))
+                .findAny()
+                .orElse(null);
     }
 
-    //TODO: Implement body
     @Override
     public User update(User user) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(read(user.getUserEmail()) != null){
+            delete(user.getUserEmail());
+            create(user);
+        }
+        return user;
     }
 
-    //TODO: Implement body
     @Override
     public void delete(String email) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+        User user = read(email);
+        this.userDB.remove(user);    }
 
-    //TODO: Implement body
     @Override
     public Set<User> getAll() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return userDB;
     }
 }
