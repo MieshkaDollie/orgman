@@ -13,6 +13,6 @@ public class OrganisationFactoryTest {
         Organisation org = OrganisationFactory.buildOrganisation("Retards organisation");
         Assert.assertNotNull(org.getOrgCode());
         Assert.assertEquals("Retards organisation", org.getOrgName());
-        System.out.println("Organisation code:\t"+ org.getOrgCode() +"\nOrganisation name:\t"+ org.getOrgName());
+        System.out.println(org.toString());
     }
 }

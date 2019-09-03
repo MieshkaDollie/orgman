@@ -10,9 +10,9 @@ public class RoleFactoryTest {
 
     @Test
     public void buildRole() {
-        Role role = RoleFactory.buildRole("root");
+        Role role = RoleFactory.buildRole("Admin");
         Assert.assertNotNull(role.getRoleId());
-        Assert.assertEquals("root", role.getRoleName());
-        System.out.println("Role ID:\t"+ role.getRoleId() +"\nRole name:\t"+ role.getRoleName());
+        Assert.assertEquals("Admin", role.getRoleName());
+        System.out.println(role.toString());
     }
 }

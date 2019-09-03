@@ -5,7 +5,7 @@ import ac.za.cput.adp3.xyzcongolmerate.util.Helper;
 
 public class GenderFactory {
 
-    private static final String SUFFIX = Helper.getSuffixFromClassName(GenderFactory.class); // Expecting GF from (G)ender(F)actory.
+    private static final String SUFFIX = Helper.getSuffixFromClassName(GenderFactory.class);
 
     public static Gender buildGender(String genderDescription){
         return new Gender.Builder()

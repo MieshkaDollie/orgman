@@ -15,9 +15,9 @@ public class UserRoleFactoryTest {
 
     @Test
     public void buildUserRole() {
-        UserRole ur = UserRoleFactory.buildUserRole(SUFFIX + UUID.randomUUID().toString(), "test@test.com", "1");
+        UserRole ur = UserRoleFactory.buildUserRole(SUFFIX + UUID.randomUUID().toString(), "md123@gmail.com", "1");
         assertNotNull(ur);
-        assertEquals("test@test.com", ur.getUserEmail());
+        assertEquals("md1223@gmail.com", ur.getUserEmail());
         System.out.println(ur.toString());
     }
 }

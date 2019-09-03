@@ -14,9 +14,9 @@ public class UserDemographyFactoryTest {
 
     @Test
     public void buildUserDemography() {
-        User user = UserFactory.buildUser("test@test.com","Banele","Mlamleli");
-        Race race = RaceFactory.buildRace("Green-man");
-        Gender gender = GenderFactory.buildGender("Male");
+        User user = UserFactory.buildUser("md123@gmail.com","Mieshka","Dollie");
+        Race race = RaceFactory.buildRace("Coloured");
+        Gender gender = GenderFactory.buildGender("Female");
         Date date = new Date();
         UserDemography userDemography = UserDemographyFactory.buildUserDemography(user.getUserEmail(),"Tile",gender.getGenderId(),race.getRaceId(),date);
         assertNotNull(userDemography);

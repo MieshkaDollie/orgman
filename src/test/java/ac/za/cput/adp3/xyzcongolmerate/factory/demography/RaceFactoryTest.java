@@ -10,9 +10,9 @@ public class RaceFactoryTest {
 
     @Test
     public void buildRace() {
-        Race race = RaceFactory.buildRace("Black-man");
+        Race race = RaceFactory.buildRace("Coloured");
         Assert.assertNotNull(race.getRaceId());
-        Assert.assertEquals("Black-man", race.getRaceDescription());
-        System.out.println("Race ID:\t"+ race.getRaceId() +"\nRace desc.:\t"+ race.getRaceDescription());
+        Assert.assertEquals("Coloured", race.getRaceDescription());
+        System.out.println(race.toString());
     }
 }

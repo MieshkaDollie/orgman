@@ -17,7 +17,7 @@ public class OrganisationUserFactoryTest {
 
     @Test
     public void buildOrganisationUser() {
-        User user = UserFactory.buildUser("test@test.com", "Banele", "Mlamleli");
+        User user = UserFactory.buildUser("md123@gmail.com", "Mieshka", "Dollie");
         OrganisationUser orgUser = new OrganisationUser(SUFFIX + UUID.randomUUID().toString(), user.getUserEmail());
         Assert.assertNotNull(orgUser);
         Assert.assertNotNull(orgUser.getOrgCode());

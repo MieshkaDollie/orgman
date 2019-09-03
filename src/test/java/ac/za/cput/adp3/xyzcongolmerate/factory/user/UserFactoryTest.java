@@ -10,9 +10,9 @@ public class UserFactoryTest {
 
     @Test
     public void buildUser() {
-        User userTest = UserFactory.buildUser("test@test.com","Banele","Mlamleli");
+        User userTest = UserFactory.buildUser("md123@gmail.com","Mieshka","Dollie");
         System.out.println(userTest);
         Assert.assertNotNull(userTest.toString());
-        assertEquals("test@test.com", userTest.toString());
+        assertEquals("md123@gmail.com", userTest.toString());
     }
 }
